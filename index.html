@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canorHVH | Премиум чит для CS2 (HVH)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e);
+            color: #f0f0f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(20, 20, 30, 0.95);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #00ccff;
+            box-shadow: 0 5px 15px rgba(0, 204, 255, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            color: #00ccff;
+            font-size: 2.5rem;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #00ccff, #0099ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .nav-links a:hover {
+            color: #00ccff;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(30, 30, 60, 0.7), transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff3366, #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #aaa;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff3366, #ff0066);
+            color: white;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(255, 51, 102, 0.5);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 51, 102, 0.8);
+            background: linear-gradient(90deg, #ff0066, #cc0052);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            color: #00ccff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: rgba(40, 40, 70, 0.6);
+            border-radius: 15px;
+            padding: 30px;
+            border-left: 5px solid #00ccff;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(50, 50, 90, 0.8);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: #ff3366;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+            background: rgba(10, 10, 20, 0.7);
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .price-card {
+            background: rgba(50, 50, 80, 0.8);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            border: 2px solid #444;
+            transition: all 0.3s;
+        }
+
+        .price-card.popular {
+            border-color: #00ccff;
+            transform: scale(1.05);
+        }
+
+        .price-card.popular .price {
+            color: #ff3366;
+        }
+
+        .price-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00ccff;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 20px 0;
+            color: #00ccff;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .price-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #444;
+            color: #ccc;
+        }
+
+        .price-features li i {
+            color: #00ff88;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(10, 10, 15, 0.95);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+        }
+
+        .footer-links a {
+            color: #00ccff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Warning */
+        .warning {
+            background: rgba(255, 50, 50, 0.1);
+            border: 1px solid #ff3333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 900px;
+            text-align: center;
+            color: #ff9999;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-crosshairs logo-icon"></i>
+                <div class="logo-text">canorHVH</div>
+            </div>
+            <nav class="nav-links">
+                <a href="#features"><i class="fas fa-star"></i> Функции</a>
+                <a href="#pricing"><i class="fas fa-tags"></i> Цены</a>
+                <a href="#"><i class="fas fa-question-circle"></i> Поддержка</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>canorHVH — Доминируй в CS2</h1>
+                <p>Самый продвинутый и незаметный приватный чит для режима HvH и не только. Постоянные обновления, максимальная защита от античиты, уникальные функции.</p>
+                <a href="#pricing" class="cta-button"><i class="fas fa-shopping-cart"></i> КУПИТЬ ДОСТУП</a>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">Версия: 2.1.5 | Совместимость: CS2 (Latest)</p>
+            </div>
+        </section>
+
+        <div class="container warning">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Внимание:</strong> Данный софт предназначен исключительно для использования на приватных серверах (HvH) в ознакомительных целях. Использование на официальных серверах Valve противоречит Subscriber Agreement и может привести к блокировке аккаунта.
+        </div>
+
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Мощные возможности</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bullseye feature-icon"></i>
+                        <h3>Умный Aimbot</h3>
+                        <p>Адаптивный прицел с интеллектуальным выбором цели, проверкой видимости, плавным доводом и полной кастомизацией под ваш стиль игры.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-eye feature-icon"></i>
+                        <h3>Полный ESP</h3>
+                        <p>Информация через стены: боксы, скелетоны, здоровье, оружие, имена, расстояние. Glow-эффект с настройкой цвета.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-sliders-h feature-icon"></i>
+                        <h3>Skin Changer</h3>
+                        <p>Любые скины на клиенте, включая ножи, перчатки, аксессуары. Работает на любых серверах.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h3>Anti-Aim & Resolver</h3>
+                        <p>Продвинутая система искажения углов обзора для HVH-поединков. Умный резолвер чужих эймов.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-tachometer-alt feature-icon"></i>
+                        <h3>Misc функции</h3>
+                        <p>Bunny Hop, No Flash, No Smoke, Radar Hack, FOV Changer, ThirdPerson и многое другое.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-user-secret feature-icon"></i>
+                        <h3>100% Undetected</h3>
+                        <p>Защита от VAC, Overwatch и Faceit. Используются уникальные методы инжекта и маскировки.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing">
+            <div class="container">
+                <h2 class="section-title">Выберите подписку</h2>
+                <div class="pricing-cards">
+                    <div class="price-card">
+                        <h3>1 День (Тест)</h3>
+                        <div class="price">$5 <span>USD</span></div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Полный доступ ко всем функциям</li>
+                            <li><i class="fas fa-check"></i> Техническая поддержка</li>
+                            <li><i class="fas fa-times"></i> Авто-продление</li>
+                            <li><i class="fas fa-times"></i> Приоритет в обновлениях</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="background: linear-gradient(90deg, #666, #444);">Купить</a>
+                    </div>
+                    <div class="price-card popular">
+                        <h3>1 Месяц (Популярно)</h3>
+                        <div class="price">$25 <span>USD</span></div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Полный доступ ко всем функциям</li>
+                            <li><i class="fas fa-check"></i> Приоритетная поддержка</li>
+                            <li><i class="fas fa-check"></i> Ранний доступ к бета-функциям</li>
+                            <li><i class="fas fa-check"></i> Конфигурации от профи</li>
+                        </ul>
+                        <a href="#" class="cta-button">Купить сейчас</a>
+                    </div>
+                    <div class="price-card">
+                        <h3>Навсегда (Lifetime)</h3>
+                        <div class="price">$120 <span>USD</span></div>
+                        <ul class="price-features">
+                            <li><i class="fas fa-check"></i> Пожизненный доступ</li>
+                            <li><i class="fas fa-check"></i> Максимальный приоритет поддержки</li>
+                            <li><i class="fas fa-check"></i> Все будущие обновления</li>
+                            <li><i class="fas fa-check"></i> Персональный конфиг от разработчика</li>
+                        </ul>
+                        <a href="#" class="cta-button" style="background: linear-gradient(90deg, #666, #444);">Купить</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>canorHVH</strong> — приватное программное обеспечение для исследования игровых механик.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-telegram"></i> Telegram Канал</a> |
+                <a href="#"><i class="fas fa-envelope"></i> Контакт</a> |
+                <a href="#"><i class="fas fa-file-contract"></i> Отказ от ответственности</a>
+            </div>
+            <div class="copyright">
+                © 2023 canorHVH Project. Все права на торговые марки принадлежат их владельцам. Данный сайт не аффилирован с Valve Corporation.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простой скрипт для плавной прокрутки
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Имитация клика по кнопке "Купить" (заглушка)
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if(this.innerText.includes('КУПИТЬ')) {
+                    e.preventDefault();
+                    alert('[Тестовое сообщение] В реальном сценарии здесь была бы перенаправление на платежный шлюз или инструкция.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
